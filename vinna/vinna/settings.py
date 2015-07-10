@@ -42,6 +42,52 @@ INSTALLED_APPS = (
     'userprofile',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+SOCIAL_AUTH_BACKEND_ERROR_URL = '/'
+LOGIN_ERROR_URL = '/'
+
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1014974908537479'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0aba09a4559bab457c7144249f56f47b'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '543072701201-feiq6raeiaeon7bpvoipgtc0ocnfa2oo.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '6GjdA7izy1UNkQp7qO_at93z'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'social.pipiline.save_profile_picture'
+)
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +97,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 )
 
 ROOT_URLCONF = 'vinna.urls'
