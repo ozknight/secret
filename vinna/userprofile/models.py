@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+
 # Create your models here.
 GENDER = (
     ('M', 'Male'),
@@ -20,6 +21,7 @@ class Profile(models.Model):
     birthdate = models.DateField(null=True)
     gender = models.CharField(max_length=1, choices=GENDER, blank=True)
     phone = models.CharField('Contact #:', max_length=16, blank=True)
+    profile_image = models.ImageField(upload_to='images/userthumbs/')
     about_you = models.TextField('About You :', blank=True)
     employer = models.BooleanField(default=False, blank=True)
 
