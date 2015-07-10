@@ -85,7 +85,7 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.social_auth.associate_user',
     'social.pipeline.social_auth.load_extra_data',
     'social.pipeline.user.user_details',
-    'social.pipiline.save_profile_picture'
+    'social.pipeline.user.save_profile',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,0 +1,107 @@
+a{
+    text-decoration:none !important;
+    font-size: 20px;
+}
+body {
+    background-color: #ecf0f1;
+}
+.reg{
+    font-size: 25px;
+}
+.log{
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.navbar {
+    border-radius: 0px;
+    background-color: #2e2d2d;
+}
+.header {
+    margin-left: 150px;
+    margin-top: 10px;
+    color: #21a5e3 !important;
+    font-size: 35px;
+    font-family: "Ubuntu Medium";
+    font-style: super-bold;
+}
+.player {
+    margin-top: 80px;
+    margin-left: 30px;
+    width:500px;
+    height:350px;
+}
+
+.line{
+    font-family: "Ubuntu Medium";
+    font-size: 35px;
+    margin-top: -250px;
+    margin-left: 600px;
+}
+
+.login_icon_fb{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+.login_icon_google{
+    width: 40px;
+    height: 40px;
+}
+.logged_in{
+}
+.bar{
+    font-size: 20px;
+    margin-top: 7px;
+}
+#form {
+    border-radius: 10px;
+    background: #bdd5e0;
+    padding: 30px;
+    padding-top: 10px;
+    width: 470px;
+    height: 560px; 
+    float: left;
+    margin-left: 410px;
+    margin-top: 35px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+#about {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: ubuntu;
+    margin-top: 0px;
+
+}
+
+#inputs {
+    font-size: 12px;
+    font-family: ubuntu;
+    color: #044c6d;
+
+}
+
+.inline {
+    display:inline-block;
+}
+
+.nav-tabs > li > a {
+    font-size: 1.5rem
+}
+
+/* Text Colors*/
+.text-white{
+    color: #FFFFFF !important;
+}
+.text-black{
+    color: #000000 !important;
+}
+.text-red{
+    color: #e74c3c !important
+}
+.text-green{
+    color: #2ecc71 !important
+}
