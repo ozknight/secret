@@ -17,13 +17,9 @@ class Profile(models.Model):
 
     """User Profile Model"""
     user = models.OneToOneField(User)
-    firstname = models.CharField(max_length=50, blank=True)
-    lastname = models.CharField(max_length=50, blank=True)
     birthdate = models.DateField(null=True)
-    gender = models.CharField(
-        max_length=1, choices=GENDER, blank=True)
-    phone = models.CharField(
-        'Contact #:', max_length=16, blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER, blank=True)
+    phone = models.CharField('Contact #:', max_length=16, blank=True)
     about_you = models.TextField('About You :', blank=True)
     employer = models.BooleanField(default=False, blank=True)
 
