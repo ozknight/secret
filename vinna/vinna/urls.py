@@ -17,13 +17,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
-from .views import HomePageView
+from .views import HomepageView
 
 urlpatterns = patterns('',
-                       url(r'^$', HomePageView.as_view(), name='homepage'),
+                       url(r'^$', HomepageView.as_view(), name='homepage'),
                        url(r'^admin/', include(admin.site.urls)),
                        url('', include(
                            'social.apps.django_app.urls', namespace='social')),
                        url('', include(
                            'django.contrib.auth.urls', namespace='auth')),
+                       url(r'^account/',
+                           include('userprofile.urls', namespace='profile')),
                        ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

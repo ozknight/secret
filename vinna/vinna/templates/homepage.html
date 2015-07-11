@@ -121,47 +121,10 @@
 	                                        <a href="#">Account</a>
 	                                    </li>
 	                                    <li>
-	                                        <a href="#">Logout</a>
+	                                       <a href="{% url 'auth:logout' %}?next={% url 'homepage' %}">Logout</a>
 	                                    </li>
 	                                </ul>
 	                            </li>
-	                             <ul class="nav navbar-nav navbar-right">
-	                        {% if user.profile.is_employer %}
-	                             <li class="dropdown">
-	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	                                    COMPANY</span> <span class="caret"></span>
-	                                </a>
-	                                     <ul class="dropdown-menu">
-	                                    <li>
-	                                        <a href="#">Create Company</a>
-	                                    </li>
-	                                    <li>
-	                                        <a href="#">View Company</a>
-	                                    </li>
-	                                    <li>
-	                                        <a href="#">Create Hiring Form</a>
-	                                    </li>
-	                                    <li>
-	                                        <a href="#">Hiring Forms</a>
-	                                    </li>
-	                                     <li>
-	                                        <a href="#">View Job List</a>
-	                                    </li>
-	                        {% else %}
-	                        <ul class="nav navbar-nav navbar-right">
-	                        <li class="dropdown">
-	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	                                    COMPANY</span> <span class="caret"></span>
-	                                </a>
-	                                     <ul class="dropdown-menu">
-	                            <li>
-	                                <a href="#">View Job List</a><br/>
-	                            </li>
-	                            <li>
-	                                <a href="#">Create Application Form</a><br/>
-	                            </li>
-	                        </ul>
-	                        {% endif %}
 	                        {% else %}
 	                            <li>
 	                                <p class="navbar-text text-uppercase text-white"> 
