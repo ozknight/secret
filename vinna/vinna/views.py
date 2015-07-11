@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import generic
+from vinna.settings import MEDIA_URL
 
 
 class HomepageView(generic.TemplateView):
@@ -19,6 +20,7 @@ class HomepageView(generic.TemplateView):
             context = {
                 'page_title': 'Welcome ' +
                 str(request.user.get_full_name() or request.user.username),
+                'media' : MEDIA_URL
             }
             if not request.user.profile.is_Profile_Set():
                 print 'profile not set'

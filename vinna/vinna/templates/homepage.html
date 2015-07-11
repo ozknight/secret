@@ -96,6 +96,11 @@
                 .text-green{
                     color: #2ecc71 !important
                 }
+                .profile_image{
+                    border:1px solid white;
+                    width:150px;
+                    height: 150px;
+                }
 		</style>
 		<nav class="navbar navbar-inverse">
 	        <div class="container">
@@ -139,14 +144,22 @@
 	                            </li>
 	                        {% endif %}
 	                    </ul>
-
-	                    </ul>
 	                </div>
 	            </div>
 	        </div>
 	    </nav>
 		<div class="container">
-			
+			<div class="row">
+                <div class="col-xs-12 col-md-6">
+                    {% if request.user and request.user.is_authenticated %}
+                        {% if request.user.profile.profile_image %}
+                            <img class="img-responsive img-circle profile_image" src="{{ media }}/{{request.user.profile.profile_image}}" alt="Profile Image"/>
+                        {% else %}
+                            <img class="img-responsive img-circle profile_image" src="{% static 'photos/photo.png' %}" alt="Profile Image"/>
+                        {% endif %}
+                    {% endif %}
+                </div>         
+            </div>
 		</div>
 		<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
