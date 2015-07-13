@@ -6,148 +6,167 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}">
 	</head>
 	<body>
-		<style type="text/css">
-			a{
-                    text-decoration:none !important;
-                    font-size: 20px;
-                }
-                body {
-                    background-color: #ABB7B7;
-                }
-                .reg{
-                    font-size: 25px;
-                }
-                .log{
-                    color: white;
-                    font-size: 20px;
-                    margin-top: 10px;
-                }
-                .navbar {
-                    border-radius: 0px;
-                    background-color: #2e2d2d;
-                }
-                .header {
-                    margin-left: 150px;
-                    margin-top: 10px;
-                    color: #21a5e3 !important;
-                    font-size: 35px;
-                    font-family: "Ubuntu Medium";
-                    font-style: super-bold;
-                }
-                .player {
-                    margin-top: 80px;
-                    margin-left: 30px;
-                    width:500px;
-                    height:350px;
-                }
+		<style>
+            /* FOR LINKS */
+           a{
+                text-decoration:none !important;
+                font-size: 20px;
+            }
+            big{
+            float: center;
+            }
 
-                .line{
-                    font-family: "Ubuntu Medium";
-                    font-size: 35px;
-                    margin-top: -250px;
-                    margin-left: 600px;
-                }
+            body {
+                background-color: #ABB7B7;
+                margin-top:75px;
+            }
+            /*  N A V  B A R  */
+            #navi{
+                color:#00000;
+            }
+            #comp{
+                font-size:30px;
+                font-family: 'Ubuntu Medium';
+                margin-left: 40px;
+            }
 
-                .logged_in{
-                }
-                .bar{
-                    font-size: 20px;
-                    margin-top: 7px;
-                }
-                #input_title {
-                    color: #123;
-                    left:5px;
-                }
+            #logo{
+                height:120%;
+            }
 
+            #icon{
+                margin-top: 5px;
+                margin-bottom:-5px;
+                margin-left: 5px;
+                margin-right: -20px;
+                height:30px;
+            }
+            #icon2{
+                margin-top: 10px;
+                margin-right: 30px;
+                margin-left: 20px;
+                height:30px;
+            }
+            /*     H O M E  P A G E   */
 
-                #about {
-                    font-size: 16px;
-                    font-weight: bold;
-                    font-family: ubuntu;
-                    margin-top: 0px;
+            .img-responsive{
+                display: inline-block;
+                max-height: 100%;
+                margin-right: -40px;
+            }
 
-                }
+            #front{
+                margin-top: 100px;
+                color:#112233;
+            }
+            #smile{
+                margin-top:100px;
+                color:#00000;
+            }
+            #player{
+                margin-bottom: -100px;
+            }
+            #about{
+                background: #2C3E50;
+                margin-top: 100px;          
+            }
+            .marketing{
+                width: auto;
+            }
 
-                #inputs {
-                    font-size: 12px;
-                    font-family: ubuntu;
-                    color: #044c6d;
-
-                }
-
-                .inline {
-                    display:inline-block;
-                }
-
-                .nav-tabs > li > a {
-                    font-size: 1.5rem
-                }
-
-                /* Text Colors*/
-                .text-white{
-                    color: #FFFFFF !important;
-                }
-                .text-black{
-                    color: #000000 !important;
-                }
-                .text-red{
-                    color: #e74c3c !important
-                }
-                .text-green{
-                    color: #2ecc71 !important
-                }
-                .profile_image{
-                    border:1px solid white;
-                    width:150px;
-                    height: 150px;
-                }
+            /*    T E X T  C O L O R S   */
+            .text-white{
+                color: #FFFFFF !important;
+            }
+            .text-black{
+                color: #000000 !important;
+            }
+            .text-red{
+                color: #e74c3c !important
+            }
+            .text-green{
+                color: #2ecc71 !important
+            }
+            .profile_image{
+                border:1px solid white;
+                width:150px;
+                height: 150px;
+            }
 		</style>
-		<nav class="navbar navbar-inverse">
-	        <div class="container">
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand header" href="{% url 'homepage' %}"><big><b>Vinna</b></big></a>
-	            </div>
-	            <div class ="bar">
-	                <div id="navbar" class="collapse navbar-collapse">
-	                    <ul class="nav navbar-nav navbar-right">
-	                        {% if user.is_authenticated %}
-	                            <li class="dropdown">
-	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	                                    Hello <span class="text-capitalize">{{ user.get_full_name|default:user.username }}</span>! <span class="caret"></span>
-	                                </a>
-	                                <ul class="dropdown-menu">
-	                                    <li>
-	                                        <a href="#">Account</a>
-	                                    </li>
-	                                    <li>
-	                                       <a href="{% url 'auth:logout' %}?next={% url 'homepage' %}">Logout</a>
-	                                    </li>
-	                                </ul>
-	                            </li>
-	                        {% else %}
-	                            <li>
-	                                <p class="navbar-text text-uppercase text-white"> 
-	                                    register :
-	                                    <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
-	                                        <img class="login_icon_google" src="{% static 'photos/fb2.jpg' %}" />
-	                                    </a>
-	                                    <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
-	                                        <img class="login_icon_google" src="{% static 'photos/g+2.jpg' %}" />
-	                                    </a>
-	                                </p>
-	                            </li>
-	                        {% endif %}
-	                    </ul>
-	                </div>
-	            </div>
-	        </div>
-	    </nav>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand header" href="{% url 'homepage' %}"><img id = "logo" src = "{% static 'photos/logo2.1.png' %}"/></a>
+                </div>
+                <div class ="bar">
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            {% if user and user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        Hello <span class="text-capitalize">{{ user.get_full_name|default:user.username }}</span>! <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{% url 'profile:update' user.id %}">Account</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'auth:logout' %}?next={% url 'homepage' %}">Logout</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {% if user.profile.is_employer %}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        COMPANY</span> <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                        {% if user.profile.check_company == 'False' %}
+                                        <li>
+                                            <a href="">add A Company</a><br/>
+                                        </li>
+                                        {% endif %}
+                                        </li>
+                                        <li>
+                                            <a href="">View Company</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Create Hiring Form</a>
+                                        </li>
+                                        <li>
+                                            <a href="">Hiring Forms</a>
+                                        </li>
+                                         <li>
+                                            <a href="">View Job List</a>
+                                        </li>
+                                        <li>
+                                            <a href="">View Application Form</a><br/>
+                                        </li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                            {% else %}                               
+                                <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+                                        <img id ="icon" src="{% static 'photos/fb2.jpg' %}" />
+                                        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
+                                        <img id ="icon2" src="{% static 'photos/g+2.jpg' %}" /></a>                  
+                                    </ul>
+                                </div>                                   
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 		<div class="container">
 			<div class="row">
                 <div class="col-xs-12 col-md-6">

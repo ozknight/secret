@@ -37,14 +37,11 @@ class Profile(models.Model):
         if not self.birthdate:
             return False
         age = timezone.now().year - self.birthdate.year
-        print age
         return age >= MIN_VALID_AGE
 
     def is_gender_valid(self):
         if self.gender in Valid_Gender:
-            print 'valid gender'
             return True
-        print 'invalid gender'
         return False
 
     def create_user_profile(sender, instance, created, **kwargs):
