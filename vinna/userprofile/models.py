@@ -48,5 +48,11 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user=instance)
 
+    def __unicode__(self):
+        return self.user.username + "\'s Profile"
+
+    class Meta:
+        verbose_name = 'User Profile'
+        verbose_name_plural = 'User Profiles'
     is_employer.boolean = True
     models.signals.post_save.connect(create_user_profile, sender=User)
