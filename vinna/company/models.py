@@ -7,7 +7,7 @@ class Company(models.Model):
 
     """Company model for Users who are Employeed"""
 
-    owner = models.ForeignKey(User)
+    owner = models.OneToOneField(User)
     logo = models.ImageField(upload_to='images/companyhumbs/')
     name = models.CharField(verbose_name='Name', max_length=100)
     address = models.CharField(verbose_name='Address', max_length=255)

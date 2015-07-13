@@ -28,4 +28,6 @@ urlpatterns = patterns('',
                            'django.contrib.auth.urls', namespace='auth')),
                        url(r'^account/',
                            include('userprofile.urls', namespace='profile')),
+                       url(r'^company/',
+                           include('company.urls', namespace='company')),
                        ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

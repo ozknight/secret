@@ -127,13 +127,11 @@
                                         COMPANY</span> <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li>
-                                        {% if user.profile.check_company == 'False' %}
-                                        <li>
-                                            <a href="">add A Company</a><br/>
+                                        {% if not user.profile.User_Created_A_Company %}
+                                        <li class="active">
+                                            <a href="{% url 'company:create' %}">Add A Company</a>
                                         </li>
                                         {% endif %}
-                                        </li>
                                         <li>
                                             <a href="">View Company</a>
                                         </li>

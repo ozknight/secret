@@ -113,7 +113,7 @@
                                         Hello <span class="text-capitalize">{{ user.get_full_name|default:user.username }}</span>! <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li class="active">
+                                        <li>
                                             <a href="{% url 'profile:update' user.id %}">Account</a>
                                         </li>
                                         <li>
@@ -177,7 +177,7 @@
 	                    <form method="POST" enctype="multipart/form-data">
 	                        {% csrf_token %}
 	                        {{ form.as_p }}
-	                        <input class="btn btn-block btn-success" type="submit" value="Save"/>
+	                        <input class="btn btn-block btn-success" type="submit" value="Create"/>
 	                    </form>
 	                </div>
 	            </div>

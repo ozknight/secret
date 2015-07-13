@@ -4,8 +4,6 @@ from django.shortcuts import render
 from django.views import generic
 from vinna.settings import MEDIA_URL
 
-from company.models import Company
-
 
 class HomepageView(generic.TemplateView):
 
@@ -14,11 +12,6 @@ class HomepageView(generic.TemplateView):
     template_name = 'homepage.html'
 
     def get(self, request, *args, **kwargs):
-        try:
-            profile = Company.objects.filter(owner=request.user)
-        except Exception:
-            profile = False
-
         context = {
             'user': request.user,
             'page_title': 'Welcome To Vinna!',
