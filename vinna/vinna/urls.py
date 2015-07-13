@@ -30,4 +30,5 @@ urlpatterns = patterns('',
                            include('userprofile.urls', namespace='profile')),
                        url(r'^company/',
                            include('company.urls', namespace='company')),
+                       url(r'^job/', include('job.urls', namespace='job')),
                        ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

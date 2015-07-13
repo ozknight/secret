@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from company.models import Company
 # Create your models here.
 
 
@@ -74,7 +75,7 @@ class Hiring(models.Model):
 
     """Serves As A Hiring Form Created By Companies"""
 
-    company = models.ForeignKey('company.Company')
+    company = models.ForeignKey(Company)
     title = models.CharField(max_length=200)
     description = models.TextField()
     requirement = models.TextField()
