@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'vinna',
     'userprofile',
     'company',
+    'job',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
