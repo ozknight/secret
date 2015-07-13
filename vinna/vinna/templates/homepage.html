@@ -168,9 +168,10 @@
             </div>
         </nav>
 		<div class="container">
+            {% if user and user.is_authenticated %}
 			<div class="row">
                 <div class="col-xs-12 col-md-6">
-                    {% if request.user and request.user.is_authenticated %}
+                    {% if user and user.is_authenticated %}
                         {% if request.user.profile.profile_image %}
                             <img class="img-responsive img-circle profile_image" src="{{ media }}/{{request.user.profile.profile_image}}" alt="Profile Image"/>
                         {% else %}
@@ -179,6 +180,43 @@
                     {% endif %}
                 </div>         
             </div>
+            {% else %}
+            <div id = "front" class="row">
+                <div  id="player"class="col-md-6">
+                   <img src="{% static 'photos/player.png' %}" class="img-responsive" alt="Cinque Terre" width="550" height="auto"> 
+                </div>
+                <div id ="smile" class="col-md-6 text-white">
+                  <h1 class="cover-heading"><b><big>Smile, You've Found Us</big></b></h1>
+                    <p  class="lead text-white">Hiring people, hassle free. Upload video, send resume, and choose company you want to apply.</p>
+                    <p class="lead"></p>
+                </div>
+            </div>
+            <div class="marketing">
+                <center>
+                    <!-- Three columns of text below the carousel -->
+                    <div id="about" class="row">
+                        <div id="about"class="col-lg-4 text-white">
+                          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                          <h2>Heading</h2>
+                          <p color = "0000">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div id="about"class="col-lg-4 text-white">
+                          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                          <h2>Heading</h2>
+                          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                        <div id="about"class="col-lg-4 text-white">
+                          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                          <h2>Heading</h2>
+                          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                    </div><!-- /.row -->
+                </center>
+            </div>
+            {% endif %}
 		</div>
 		<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from company.models import Company
 from django.utils import timezone
 
 # Create your models here.
@@ -41,6 +42,11 @@ class Profile(models.Model):
 
     def is_gender_valid(self):
         if self.gender in Valid_Gender:
+            return True
+        return False
+
+    def User_Created_A_Company(self):
+        if Company.objects.filter(owner=self.user).count():
             return True
         return False
 
