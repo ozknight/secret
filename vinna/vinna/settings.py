@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'social.apps.django_app.default',
     'vinna',
     'userprofile',
+    'company',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

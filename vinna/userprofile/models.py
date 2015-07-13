@@ -54,5 +54,6 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'User Profile'
         verbose_name_plural = 'User Profiles'
+
     is_employer.boolean = True
     models.signals.post_save.connect(create_user_profile, sender=User)
